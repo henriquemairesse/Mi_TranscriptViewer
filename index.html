@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizador de Transcript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        iframe {
+            width: 90%;
+            height: 80vh;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h2>Visualizador de Transcript</h2>
+    <iframe id="transcriptFrame"></iframe>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const transcriptURL = params.get("url");
+
+        if (transcriptURL) {
+            document.getElementById("transcriptFrame").src = transcriptURL;
+        } else {
+            document.body.innerHTML = "<p>Erro: Nenhum transcript foi fornecido.</p>";
+        }
+    </script>
+</body>
+</html>
